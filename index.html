@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ing. Mehdi Alinezhadshirazi | Studio di Ingegneria Energetica & Collaudi</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-base: #060911;
+            --bg-surface: #0c1220;
+            --card-bg: rgba(18, 26, 44, 0.65);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.25);
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.2);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* پس‌زمینه آمبینت */
+        .ambient-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 12% 18%, rgba(56, 189, 248, 0.07) 0%, transparent 45%),
+                radial-gradient(circle at 88% 75%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.04) 0%, transparent 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* نوار ناوبری */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            background: rgba(6, 9, 17, 0.85);
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.1rem 7%;
+        }
+
+        .brand {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* هدر اصلی */
+        header {
+            padding: 5rem 7% 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3.5rem;
+            min-height: 85vh;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .badge-academic {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.4rem 1.1rem;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 999px;
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 3.3rem;
+            line-height: 1.12;
+            font-weight: 800;
+            letter-spacing: -1.8px;
+            margin-bottom: 1.3rem;
+        }
+
+        h1 .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-lead {
+            font-size: 1.12rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            border-top: 1px solid var(--card-border);
+            padding-top: 1.8rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+
+        .stat-item p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-weight: 600;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.8rem;
+            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #040812;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(56, 189, 248, 0.45);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--text-muted);
+        }
+
+        /* کارت شناسنامه مهندسی */
+        .profile-card {
+            background: linear-gradient(155deg, rgba(20, 29, 49, 0.85) 0%, rgba(10, 15, 27, 0.95) 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 22px;
+            padding: 2.2rem;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.65);
+            max-width: 390px;
+            position: relative;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 23px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.5), transparent, rgba(245, 158, 11, 0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .profile-avatar {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            margin-bottom: 1.2rem;
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+        }
+
+        .profile-name {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .profile-title {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-info-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--card-border);
+            padding-top: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .contact-info-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .contact-info-list i {
+            color: var(--primary);
+            width: 16px;
+        }
+
+        /* ساختار سکشن‌ها */
+        section {
+            padding: 5.5rem 7%;
+        }
+
+        .section-header {
+            margin-bottom: 3.5rem;
+            max-width: 800px;
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 2.35rem;
+            font-weight: 800;
+            letter-spacing: -1.2px;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* گرید خدمات مهندسی و APE */
+        .engineering-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 2.2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.35);
+            background: rgba(22, 32, 54, 0.8);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.4rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .service-box h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-box p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* گرید حروف D.M. 37/08 */
+        .letters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .letter-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .letter-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-3px);
+            background: rgba(24, 34, 58, 0.7);
+        }
+
+        .letter-badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+        }
+
+        .letter-tag {
+            width: 42px;
+            height: 42px;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.15rem;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .status-pill {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.12);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .letter-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .letter-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* بخش بازرسی‌های تخصصی بین‌المللی */
+        .inspection-wrapper {
+            background: linear-gradient(145deg, rgba(16, 24, 43, 0.9) 0%, rgba(9, 14, 25, 0.95) 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        .inspection-intro {
+            max-width: 820px;
+            margin-bottom: 2.5rem;
+        }
+
+        .inspection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .inspection-card {
+            background: rgba(12, 18, 32, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            padding: 1.6rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .inspection-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .inspection-client {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .inspection-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .inspection-card p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* بخش بازسازی با تخفیف ویژه */
+        .promo-container {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.07) 0%, rgba(15, 23, 42, 0.85) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 22px;
+            padding: 3.2rem;
+            position: relative;
+        }
+
+        .promo-badge {
+            background: var(--accent);
+            color: #040812;
+            padding: 0.35rem 1.1rem;
+            font-weight: 800;
+            font-size: 0.75rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .promo-box {
+            background: rgba(10, 15, 28, 0.7);
+            border: 1px solid var(--card-border);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+        }
+
+        .promo-box h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .promo-box ul {
+            list-style: none;
+            margin-top: 1.2rem;
+        }
+
+        .promo-box ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .promo-box ul li i {
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        /* کارت‌های تضمین و شفافیت */
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .guarantee-card {
+            text-align: center;
+            padding: 2.2rem 1.6rem;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            background: var(--card-bg);
+        }
+
+        .guarantee-card i {
+            font-size: 2.4rem;
+            color: var(--primary);
+            margin-bottom: 1.1rem;
+        }
+
+        .guarantee-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .guarantee-card p {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+        }
+
+        /* فوتر */
+        footer {
+            padding: 4.5rem 7% 2.5rem;
+            background: #03060c;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .footer-cta {
+            max-width: 680px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-cta h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.8px;
+        }
+
+        .footer-address {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 950px) {
+            header {
+                flex-direction: column;
+                padding-top: 3rem;
+                text-align: left;
+            }
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-mesh"></div>
+
+    <nav>
+        <a href="#" class="brand">
+            <span class="brand-dot"></span>
+            ING. ALINEZHADSHIRAZI
+        </a>
+        <div class="nav-links">
+            <a href="#profilo">Profilo</a>
+            <a href="#ingegneria">Consulenza & APE</a>
+            <a href="#abilitazioni">D.M. 37/08 (A-G)</a>
+            <a href="#ispezioni">Collaudi & QA/QC</a>
+            <a href="#ristrutturazioni">Ristrutturazioni</a>
+            <a href="#contatti">Contatti</a>
+        </div>
+    </nav>
+
+    <!-- معرفی ارشد -->
+    <header id="profilo">
+        <div class="hero-content">
+            <div class="badge-academic">
+                <i class="fa-solid fa-graduation-cap"></i> Laurea Magistrale in Ingegneria Energetica — Università degli Studi di Padova
+            </div>
+            <h1>Ingegneria degli Impianti & <span class="gradient-text">Responsabile Tecnico</span> Abilitato</h1>
+            <p class="hero-lead">
+                Ingegnere Energetico con oltre <strong>12 anni di comprovata esperienza continuativa tra Italia e Iran</strong> nella progettazione termofluidodinamica, climatizzazione avanzata (HVAC & Pompe di Calore), sistemi elettrotecnici e collaudi industriali complessi. 
+                Abilitato come <strong>Responsabile Tecnico D.M. 37/08 per l'intero spettro normativo (dalla Lettera A alla Lettera G)</strong> con rilascio di certificazioni asseverate a norma di legge.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>12+</h3>
+                    <p>Anni di Esperienza</p>
+                </div>
+                <div class="stat-item">
+                    <h3>7/7</h3>
+                    <p>Lettere D.M. 37/08</p>
+                </div>
+                <div class="stat-item">
+                    <h3>UniPD</h3>
+                    <p>M.Sc. Ingegneria</p>
+                </div>
+                <div class="stat-item">
+                    <h3>ISO / EN</h3>
+                    <p>Standard QA/QC</p>
+                </div>
+            </div>
+            <div class="cta-group">
+                <a href="#contatti" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Richiedi Sopralluogo Gratuito</a>
+                <a href="#ingegneria" class="btn btn-outline"><i class="fa-solid fa-file-signature"></i> Servizi di Ingegneria & APE</a>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <img class="profile-avatar" src="https://avatars.githubusercontent.com/u/108500206?v=4" alt="Mehdi Alinezhadshirazi">
+            <div class="profile-name">Mehdi Alinezhadshirazi</div>
+            <div class="profile-title">Ingegnere Energetico & Responsabile Tecnico</div>
+            
+            <ul class="contact-info-list">
+                <li><i class="fa-solid fa-location-dot"></i> Via Giambattista Belzoni 118, 35121 Padova (PD)</li>
+                <li><i class="fa-solid fa-phone"></i> +39 348 905 8542</li>
+                <li><i class="fa-solid fa-envelope"></i> mehdialinezhad90@gmail.com</li>
+                <li><i class="fa-solid fa-map"></i> <strong>Operatività:</strong> Veneto & Tutto il Territorio Nazionale</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- بخش خدمات مهندسی، مشاوره، APE و ممیزی -->
+    <section id="ingegneria" style="background: rgba(12, 18, 32, 0.4);">
+        <div class="section-header">
+            <span class="section-tag">Consulenza Avanzata & Diagnostica</span>
+            <h2>Servizi di Ingegneria Energetica & Certificazione APE</h2>
+            <p>Supporto tecnico-scientifico per privati, general contractor ed industrie mirato all'ottimizzazione del vettore termico, conformità di legge e massimo risparmio primario:</p>
+        </div>
+
+        <div class="engineering-services-grid">
+            <div class="service-box">
+                <div class="service-icon"><i class="fa-solid fa-certificate"></i></div>
+                <h3>Certificazione Energetica (APE)</h3>
+                <p>Redazione dell'<strong>Attestato di Prestazione Energetica (APE)</strong> con rilascio del codice identificativo regionale (Catasto Energetico Veneto - VE-NET). Rilievi in sito, calcolo del fabbisogno primario non rinnovabile (EPgl,nren) e definizione degli interventi migliorativi obbligatori per compravendite, locazioni e fine lavori.</p>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Diagnosi & Audit Energetico</h3>
+                <p>Valutazione strumentale termofluidodinamica dell'involucro edilizio e dei rendimenti di generazione. Individuazione dei ponti termici, calcolo delle dispersioni secondo le norme <strong>UNI/TS 11300</strong> e piani analitici di rientro economico (ROI / LCOE) per impianti residenziali ed industriali.</p>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon"><i class="fa-solid fa-fire-burner"></i></div>
+                <h3>Progettazione Impianti Termotecnici & HVAC</h3>
+                <p>Dimensionamento esecutivo di centrali termiche complesse, sistemi ibridi, <strong>pompe di calore aerotermiche ed idrotermiche ad altissima efficienza</strong>, ventilazione meccanica controllata (VMC), circuiti aeraulici e riscaldamento radiante a pavimento.</p>
+            </div>
+
+            <div class="service-box">
+                <div class="service-icon"><i class="fa-solid fa-file-shield"></i></div>
+                <h3>Dichiarazioni di Conformità & Rispondenza</h3>
+                <p>Asseverazione formale di rispondenza per impianti privi di documentazione (<strong>Di.Ri. ai sensi dell'Art. 7 D.M. 37/08</strong>) ed emissione della <strong>Dichiarazione di Conformità (Di.Co.)</strong> a regola d'arte comprensiva di schemi unifilari, relazioni tecniche e planimetrie as-built.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش حروف کامل الفبای D.M. 37/08 -->
+    <section id="abilitazioni">
+        <div class="section-header">
+            <span class="section-tag">Quadro Tecnico Normativo Integrale</span>
+            <h2>Responsabile Tecnico D.M. 37/08 — Tutte le Lettere (A - G)</h2>
+            <p>Esecuzione professionale a regola d'arte, collaudi, perizie e direzione tecnica per tutte le categorie impiantistiche previste dall'<strong>Art. 1, comma 2 del Decreto Ministeriale 37/08</strong>:</p>
+        </div>
+
+        <div class="letters-grid">
+            <div class="letter-card">
+                <div class="letter-badge-row">
+                    <div class="letter-tag">A</div>
+                    <span class="status-pill"><i class="fa-solid fa-check"></i> Esecuzione & Firma</span>
+                </div>
+                <h4>Impianti Elettrici & Automazione</h4>
+                <p>Produzione, trasformazione, trasporto, distribuzione ed utilizzazione dell'energia elettrica. Circuiti trifase, quadri elettrici industriali, scariche atmosferiche, sistemi domotici e building automation.</p>
+            </div>
+
+            <div class="letter-card">
+                <div class="letter-badge-row">
+                    <div class="letter-tag">B</div>
+                    <span class="status-pill"><i class="fa-solid fa-check"></i> Esecuzione & Firma</span>
+                </div>
+                <h4>Elettronici, Dati & TVCC</h4>
+                <p>Impianti radiotelevisivi, antenne satellitari, cablaggio strutturato e trasmissione dati (rame/fibra), teleallarme, sistemi antintrusione e videosorveglianza avanzata.</p>
+            </div>
+
+            <div class="letter-card">
+                <div class="letter-badge-row">
+                    <div class="letter-tag">C</div>
+                    <span class="status-pill"><i class="fa-solid fa-check"></i> Esecuzione & Firma</span>
+                </div>
+                <h4>Riscaldamento & Climatizzazione</h4>
+                <p>Centrali termiche ad alta potenza, generatori di calore a condensazione, pompe di calore inverter, sistemi idronici ed aeraulici, unità di trattamento aria (UTA), chiller e canali di distribuzione.</p>
+            </div>
+
+            <div class="letter-card">
+                <div class="letter-badge-row">
+                    <div class="letter-tag">D</div>
+                    <span class="status-pill"><i class="fa-solid fa-check"></i> Esecuzione & Firma</span>
+                </div>
+                <h4>Idrico-Sanitari & Trattamento Acque</h4>
+                <p>Adduzione e distribuzione idrica ad uso potabile e sanitario, reti di ricircolo ACS, colonne di scarico insonorizzate, addolcitori chimici, disinfezione termica antilegionella e sistemi autoclave.</p>
+            </div>
+
+            <div class="letter-card">
+                <div class="letter-badge-row">
+                    <div class="letter-tag">E</div>
+                    <span class="status-pill"><i class="fa-solid fa-check"></i> Esecuzione & Firma</span>
+                </div>
+                <h4>Distribuzione & Adduzione Gas</h4>
+                <p>Impianti per il trasporto ed utilizzo di gas metano e GPL allo stato liquido o aeriforme, a monte e a valle dei misuratori, prove di tenuta a pressione (UNI 7129 / UNI 11528) ed evacuazione fumi asservita.</p>
+            </div>
+
+            <div class="letter-card">
+                <div class="letter-badge-row">
+                    <div class="letter-tag">F</div>
+                    <span class="status-pill"><i class="fa-solid fa-check"></i> Esecuzione & Firma</span>
+                </div>
+                <h4>Impianti di Sollevamento</h4>
+                <p>Ascensori, montacarichi, montascala e piattaforme elevatrici per il superamento delle barriere architettoniche azionati da sistemi idraulici o trazione elettromeccanica.</p>
+            </div>
+
+            <div class="letter-card">
+                <div class="letter-badge-row">
+                    <div class="letter-tag">G</div>
+                    <span class="status-pill"><i class="fa-solid fa-check"></i> Esecuzione & Firma</span>
+                </div>
+                <h4>Protezione Attiva Antincendio</h4>
+                <p>Reti di idranti e naspi UNI 10779, sistemi di spegnimento a pioggia (Sprinkler automatici), riserve idriche antincendio con gruppi di pompaggio e sistemi di controllo fumo e calore (EFC).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش بازرسی‌های فنی صنعتی و بین‌المللی بر اساس رزومه -->
+    <section id="ispezioni">
+        <div class="inspection-wrapper">
+            <div class="inspection-intro">
+                <span class="section-tag" style="color: var(--accent);">Esperienza di Terza Parte & QA/QC</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.8rem;">Collaudi, Ispezioni Industriali & Factory Acceptance Tests (FAT)</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    Comprovata attività di ispezione tecnica multidisciplinare (meccanica, elettrica, chimica e strumentale) in conformità con i protocolli internazionali <strong>ISO 2859-1, EN 10204 3.1</strong> e mandati istituzionali per primari gruppi multinazionali e agenzie globali (UN FAO, Thyssenkrupp Nucera, ABB, Siemens):
+                </p>
+            </div>
+
+            <div class="inspection-grid">
+                <div class="inspection-card">
+                    <div class="inspection-client"><i class="fa-solid fa-industry"></i> Bernardinello Engineering S.p.A. / Thyssenkrupp</div>
+                    <h4>Process Water & Demineralized Plant</h4>
+                    <p>Witnessing multidisciplinare di collaudo FAT: verifica quadri elettrici, loop test strumentali, tenuta idraulica valvole di processo ed audit dossier di certificazione EN 10204 3.1.</p>
+                </div>
+
+                <div class="inspection-card">
+                    <div class="inspection-client"><i class="fa-solid fa-bolt"></i> Tamini Trasformatori S.r.l.</div>
+                    <h4>Power Transformer 20 MVA Three-Phase</h4>
+                    <p>Ispezione finale PDI, controllo conformità rivestimenti superficiali e spessore verniciatura, audit targhe dati e benestare alla spedizione marittima transcontinentale.</p>
+                </div>
+
+                <div class="inspection-card">
+                    <div class="inspection-client"><i class="fa-solid fa-atom"></i> Finapp S.r.l. (UN FAO Order)</div>
+                    <h4>Cosmic Ray Neutron Sensors (CRNS)</h4>
+                    <p>Collaudo e verifica di precisione per strumentazione nucleare-elettronica idrologica: verifica energizzazione, calibrazione, marcatura istituzionale e protezione ESD.</p>
+                </div>
+
+                <div class="inspection-card">
+                    <div class="inspection-client"><i class="fa-solid fa-microchip"></i> Gruppo Giovannini S.r.l. (ABB & Siemens)</div>
+                    <h4>Quadri B.T. & Automazione Industriale</h4>
+                    <p>Audit visuale e dimensionale su interruttori scatolati ABB SACE Tmax, softstarter trifase Siemens e moduli di comunicazione ad alte prestazioni PROFINET.</p>
+                </div>
+
+                <div class="inspection-card">
+                    <div class="inspection-client"><i class="fa-solid fa-battery-three-quarters"></i> M/S. LEVER S.r.l.</div>
+                    <h4>Power Electronics & Industrial UPS</h4>
+                    <p>Supervisione test elettrofunzionali su raddrizzatori industriali trifase e banchi batterie stazionarie sigillate VRLA per continuità di alimentazione critica.</p>
+                </div>
+
+                <div class="inspection-card">
+                    <div class="inspection-client"><i class="fa-solid fa-water"></i> COSME S.r.l.</div>
+                    <h4>Trattamento Acque Reflue & Nastropresse</h4>
+                    <p>Vendor inspection e presidio alle prove funzionali a secco (Dry Run Test) di nastropresse pesanti per disidratazione fanghi e soffianti di processo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- آفر بازسازی خانه و سرویس بهداشتی با تخفیف ویژه -->
+    <section id="ristrutturazioni">
+        <div class="promo-container">
+            <span class="promo-badge"><i class="fa-solid fa-tags"></i> Condizioni Esclusive 2026 & Detrazioni Fiscali</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 0.8rem;">Riqualificazione Edilizia & Ristrutturazioni ad Alta Efficienza</h2>
+            <p style="color: var(--text-muted); max-width: 750px;">
+                Esecuzione e direzione cantieri con approccio ingegneristico "chiavi in mano": perfetta sinergia tra opere edili ed impiantistica termoidraulica certificata, con <strong>sconti dedicati a capitolato</strong>.
+            </p>
+
+            <div class="promo-grid">
+                <div class="promo-box">
+                    <h3><i class="fa-solid fa-house-chimney" style="color: var(--accent);"></i> Ristrutturazione Completa Residenziale</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Rinnovamento integrale dell'unità immobiliare orientato al massimo salto di classe energetica (APE A4):</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check-circle"></i> Demolizione partizioni, rimozione macerie e nuovi massetti termoisolanti</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Installazione impianto radiante a pavimento a basso spessore</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Posa generatore a pompa di calore ibrida / full electric</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Rifacimento integrale quadro elettrico ed automazione domotica</li>
+                        <li><i class="fa-solid fa-check-circle"></i> <strong>Sconto speciale applicato sul computo metrico estimativo complessivo</strong></li>
+                    </ul>
+                </div>
+
+                <div class="promo-box">
+                    <h3><i class="fa-solid fa-shower" style="color: var(--accent);"></i> Ristrutturazione Bagno Premium</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Rifacimento completo delle sale da bagno con sostituzione integrale degli impianti sottotraccia:</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check-circle"></i> Rimozione vecchi rivestimenti e smaltimento a discarica autorizzata</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Nuovo collettore di distribuzione acqua sanitaria con tubazioni multistrato coibentate</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Rete di scarico in polipropilene fonoassorbente ad innesto</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Impermeabilizzazione a doppio strato con membrana elastica certificata</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Montaggio sanitari filo-muro/sospesi, rubinetteria e box doccia filo-pavimento</li>
+                        <li><i class="fa-solid fa-check-circle"></i> <strong>Pacchetto "Bagno Chiavi in Mano" a tariffa promozionale forfettaria</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تضمینات قانونی، شفافیت و خدمات رایگان -->
+    <section id="garanzie" style="background: rgba(12, 18, 32, 0.4);">
+        <div class="section-header">
+            <span class="section-tag">Massima Trasparenza Fiscale & Contrattuale</span>
+            <h2>Perché Scegliere la Mia Direzione Tecnica</h2>
+            <p>La certezza della conformità giuridica unita al massimo rigore dell'ingegneria applicata:</p>
+        </div>
+
+        <div class="guarantees-grid">
+            <div class="guarantee-card">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <h4>Fatturazione Ufficiale</h4>
+                <p>Emissione di regolare fattura elettronica deducibile e valida per tutte le agevolazioni edili e fiscali vigenti in Italia.</p>
+            </div>
+
+            <div class="guarantee-card">
+                <i class="fa-solid fa-certificate"></i>
+                <h4>Di.Co. & Asseverazioni</h4>
+                <p>Consegna di tutta la documentazione tecnica a norma di legge: libretto impianto, rapporti di controllo e Di.Co. D.M. 37/08.</p>
+            </div>
+
+            <div class="guarantee-card">
+                <i class="fa-solid fa-folder-open"></i>
+                <h4>Sopralluogo & Fascicolo Zero Spese</h4>
+                <p>Visita iniziale sul posto, rilievo preliminare e prima apertura della pratica tecnica svolti in forma <strong>totalmente gratuita</strong>.</p>
+            </div>
+
+            <div class="guarantee-card">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h4>Presenza Veneto & Italia</h4>
+                <p>Interventi immediati a Padova, Venezia, Treviso, Vicenza, Verona e disponibilità di trasferta su scala nazionale su commessa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر و فرم ارتباط -->
+    <footer id="contatti">
+        <div class="footer-cta">
+            <h2>Affida i Tuoi Impianti ad un Ingegnere Qualificato</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2.2rem; font-size: 1.05rem;">
+                Contattami direttamente per un preventivo trasparente, una certificazione APE urgente o per programmare il tuo sopralluogo gratuito.
+            </p>
+            <div class="cta-group" style="justify-content: center;">
+                <a href="tel:+393489058542" class="btn btn-primary"><i class="fa-solid fa-phone"></i> +39 348 905 8542</a>
+                <a href="mailto:mehdialinezhad90@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> mehdialinezhad90@gmail.com</a>
+            </div>
+            <div class="footer-address">
+                <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Studio: Via Giambattista Belzoni 118, 35121 Padova, Italia
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Ing. Mehdi Alinezhadshirazi — M.Sc. Energy Engineering (Università di Padova). Piattaforma mehd.me. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
