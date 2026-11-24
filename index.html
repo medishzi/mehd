@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ing. Mehdi A. | Studio di Ingegneria Energetica, Impianti & Collaudi</title>
-    <meta name="description" content="Ing. Mehdi A. - Laurea Magistrale in Ingegneria Energetica (UniPD), Responsabile Tecnico D.M. 37/08 (Lettere A-G), Certificazione F-Gas Cat. I, APE e Collaudi Industriali QA/QC.">
-    
+    <title>Ing. Mehdi A. | Ingegneria Energetica, Impianti & Collaudi</title>
+    <meta name="description" content="Profilo professionale Ing. Mehdi A. — Laurea Magistrale in Ingegneria Energetica (Università di Padova), Responsabile Tecnico D.M. 37/08 (Lettere A-G), Certificazione F-Gas Cat. I e Collaudi QA/QC.">
+
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
-            --bg-base: #04070f;
-            --bg-surface: #0a101d;
-            --card-bg: rgba(15, 23, 42, 0.65);
-            --card-bg-hover: rgba(22, 33, 58, 0.85);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --primary: #38bdf8;
-            --primary-dark: #0284c7;
-            --primary-glow: rgba(56, 189, 248, 0.22);
-            --accent: #f59e0b;
+            --bg-void: #03060d;
+            --bg-elevated: #09101f;
+            --glass: rgba(15, 24, 46, 0.62);
+            --glass-hover: rgba(23, 36, 68, 0.85);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(56, 189, 248, 0.42);
+            --cyan: #38bdf8;
+            --indigo: #818cf8;
+            --amber: #f59e0b;
             --emerald: #10b981;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --radius-xl: 24px;
             --radius-lg: 18px;
             --radius-md: 12px;
         }
@@ -38,314 +39,364 @@
         }
 
         body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
+            background-color: var(--bg-void);
+            color: var(--text-primary);
             line-height: 1.65;
             overflow-x: hidden;
         }
 
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Ambient Engineering Grid & Glow */
-        .ambient-bg {
+        /* Signature Technical Grid & Mesh Backdrop */
+        .mesh-backdrop {
             position: fixed;
             inset: 0;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
-                radial-gradient(circle at 85% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 45%),
-                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+            background:
+                radial-gradient(circle at 12% 14%, rgba(56, 189, 248, 0.12) 0%, transparent 42%),
+                radial-gradient(circle at 88% 22%, rgba(129, 140, 248, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 75% 85%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+                linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 44px 44px, 44px 44px;
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Sticky Glass Navigation */
+        /* Navigation */
         nav {
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-            background: rgba(4, 7, 15, 0.82);
-            border-bottom: 1px solid var(--card-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: rgba(3, 6, 13, 0.82);
+            border-bottom: 1px solid var(--border-subtle);
             padding: 1rem 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .brand {
-            font-size: 1.15rem;
-            font-weight: 800;
-            letter-spacing: -0.4px;
-            color: var(--text-main);
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.4px;
         }
 
-        .brand-icon {
-            width: 34px;
-            height: 34px;
-            border-radius: 9px;
-            background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #04070f;
-            font-size: 0.95rem;
-            box-shadow: 0 0 18px var(--primary-glow);
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, var(--cyan), var(--indigo));
+            display: grid;
+            place-items: center;
+            color: #03060d;
+            font-size: 1rem;
+            box-shadow: 0 0 22px rgba(56, 189, 248, 0.35);
         }
 
         .nav-links {
             display: flex;
-            gap: 1.8rem;
             align-items: center;
+            gap: 1.75rem;
         }
 
         .nav-links a {
-            color: var(--text-muted);
             text-decoration: none;
+            color: var(--text-secondary);
             font-size: 0.88rem;
             font-weight: 500;
             transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--cyan);
         }
 
-        .nav-cta {
-            padding: 0.55rem 1.1rem;
+        .nav-mail-pill {
+            padding: 0.52rem 1.05rem;
+            border-radius: 10px;
             background: rgba(56, 189, 248, 0.12);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            color: var(--primary) !important;
-            border-radius: 9px;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: var(--cyan) !important;
             font-weight: 600 !important;
         }
 
-        .nav-cta:hover {
-            background: var(--primary);
-            color: #04070f !important;
+        .nav-mail-pill:hover {
+            background: var(--cyan);
+            color: #03060d !important;
         }
 
-        /* Hero Section */
+        /* Hero & Special Profile Showcase */
         header {
-            padding: 5.5rem 7% 4.5rem;
+            padding: 5rem 7% 4.5rem;
             display: grid;
-            grid-template-columns: 1.35fr 0.85fr;
+            grid-template-columns: 1.25fr 0.95fr;
+            gap: 3.8rem;
             align-items: center;
-            gap: 4rem;
             min-height: 86vh;
         }
 
-        .badge-academic {
+        .role-chip {
             display: inline-flex;
             align-items: center;
-            gap: 0.65rem;
-            padding: 0.45rem 1.15rem;
-            background: rgba(56, 189, 248, 0.08);
-            border: 1px solid rgba(56, 189, 248, 0.25);
+            gap: 0.6rem;
+            padding: 0.45rem 1.1rem;
             border-radius: 999px;
-            color: var(--primary);
+            background: rgba(56, 189, 248, 0.09);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            color: var(--cyan);
             font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1.6rem;
-            letter-spacing: 0.4px;
+            margin-bottom: 1.5rem;
         }
 
         h1 {
-            font-size: 3.4rem;
-            line-height: 1.1;
+            font-size: 3.35rem;
+            line-height: 1.09;
             font-weight: 800;
             letter-spacing: -1.8px;
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.35rem;
         }
 
-        h1 .gradient-text {
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 55%, #f59e0b 100%);
+        .grad-text {
+            background: linear-gradient(130deg, var(--cyan) 0%, var(--indigo) 52%, var(--amber) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-lead {
-            font-size: 1.08rem;
-            color: var(--text-muted);
+        .hero-summary {
+            color: var(--text-secondary);
+            font-size: 1.06rem;
+            max-width: 660px;
             margin-bottom: 2.2rem;
-            max-width: 680px;
         }
 
-        .hero-stats {
+        .hero-metrics {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
-            border-top: 1px solid var(--card-border);
-            padding-top: 1.8rem;
+            gap: 1.1rem;
+            padding-top: 1.7rem;
+            margin-bottom: 2.4rem;
+            border-top: 1px solid var(--border-subtle);
         }
 
-        .stat-item h3 {
-            font-size: 2rem;
+        .metric-box h3 {
+            font-size: 1.95rem;
             font-weight: 800;
-            color: var(--text-main);
             letter-spacing: -1px;
+            color: var(--text-primary);
         }
 
-        .stat-item p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .metric-box span {
+            display: block;
+            font-size: 0.74rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.7px;
-            font-weight: 600;
-            margin-top: 0.2rem;
+            letter-spacing: 0.65px;
+            color: var(--text-secondary);
+            margin-top: 0.15rem;
         }
 
-        .cta-group {
+        .cta-row {
             display: flex;
-            gap: 1rem;
             flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.65rem;
-            padding: 0.9rem 1.8rem;
+            gap: 0.6rem;
+            padding: 0.9rem 1.75rem;
             border-radius: var(--radius-md);
             font-size: 0.92rem;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.25s ease;
-            cursor: pointer;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: #04070f;
-            box-shadow: 0 6px 24px var(--primary-glow);
+        .btn-glow {
+            background: linear-gradient(135deg, var(--cyan), #0284c7);
+            color: #03060d;
+            box-shadow: 0 8px 28px rgba(56, 189, 248, 0.35);
         }
 
-        .btn-primary:hover {
+        .btn-glow:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.45);
+            box-shadow: 0 12px 34px rgba(56, 189, 248, 0.5);
         }
 
-        .btn-outline {
-            border: 1px solid var(--card-border);
-            color: var(--text-main);
+        .btn-ghost {
             background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
         }
 
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary);
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--cyan);
         }
 
-        /* Executive Engineering Profile Card */
-        .profile-card {
-            background: linear-gradient(160deg, rgba(18, 27, 48, 0.9) 0%, rgba(9, 14, 26, 0.98) 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 2.3rem;
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.75);
+        /* Signature Profile Identity Card */
+        .signature-profile {
             position: relative;
+            border-radius: 28px;
+            padding: 2.4rem;
+            background: linear-gradient(160deg, rgba(19, 30, 56, 0.92) 0%, rgba(7, 12, 24, 0.98) 100%);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 32px 70px -18px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(56, 189, 248, 0.12);
+            overflow: hidden;
         }
 
-        .profile-card::before {
-            content: '';
+        .signature-profile::before {
+            content: "";
             position: absolute;
-            inset: -1px;
-            border-radius: 25px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.55), transparent 50%, rgba(245, 158, 11, 0.35));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
+            top: -80px;
+            right: -80px;
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.24), transparent 70%);
             pointer-events: none;
         }
 
-        .profile-header {
+        .signature-profile::after {
+            content: "";
+            position: absolute;
+            bottom: -90px;
+            left: -70px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.16), transparent 70%);
+            pointer-events: none;
+        }
+
+        .profile-top {
             display: flex;
             align-items: center;
-            gap: 1.2rem;
-            margin-bottom: 1.5rem;
+            gap: 1.35rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .profile-avatar {
-            width: 82px;
-            height: 82px;
-            border-radius: 20px;
-            border: 2px solid var(--primary);
+        .avatar-ring {
+            position: relative;
+            padding: 3px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, var(--cyan), var(--amber));
+            flex-shrink: 0;
+        }
+
+        .avatar-ring img {
+            width: 88px;
+            height: 88px;
+            border-radius: 19px;
             object-fit: cover;
-            box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
+            display: block;
+            background: var(--bg-elevated);
         }
 
-        .profile-name {
-            font-size: 1.4rem;
+        .profile-status-dot {
+            position: absolute;
+            bottom: -3px;
+            right: -3px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--emerald);
+            border: 3px solid #0b1326;
+            box-shadow: 0 0 10px var(--emerald);
+        }
+
+        .profile-identity h2 {
+            font-size: 1.55rem;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
 
-        .profile-title {
-            font-size: 0.84rem;
-            color: var(--primary);
+        .profile-identity p {
+            color: var(--cyan);
+            font-size: 0.86rem;
             font-weight: 600;
             margin-top: 0.2rem;
         }
 
-        .cert-pills {
+        .profile-bio-quote {
+            margin: 1.45rem 0;
+            padding: 0.95rem 1.1rem;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.025);
+            border-left: 3px solid var(--amber);
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.55rem;
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .cert-pill {
-            font-size: 0.72rem;
+        .p-tag {
+            font-size: 0.73rem;
             font-weight: 700;
-            padding: 0.3rem 0.75rem;
-            border-radius: 8px;
-            background: rgba(16, 185, 129, 0.12);
-            color: var(--emerald);
-            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 0.34rem 0.75rem;
+            border-radius: 9px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--cyan);
+            border: 1px solid rgba(56, 189, 248, 0.22);
         }
 
-        .contact-info-list {
+        .p-tag.amber {
+            background: rgba(245, 158, 11, 0.11);
+            color: var(--amber);
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        .profile-meta {
             list-style: none;
-            font-size: 0.86rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--card-border);
+            border-top: 1px solid var(--border-subtle);
             padding-top: 1.3rem;
             display: flex;
             flex-direction: column;
             gap: 0.85rem;
+            font-size: 0.87rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .contact-info-list li {
+        .profile-meta li {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 0.75rem;
+            color: var(--text-secondary);
         }
 
-        .contact-info-list i {
-            color: var(--primary);
-            width: 16px;
-            margin-top: 4px;
+        .profile-meta i {
+            color: var(--cyan);
+            width: 18px;
+            text-align: center;
         }
 
-        .contact-info-list a {
-            color: var(--text-main);
-            text-decoration: none;
+        .profile-meta a {
+            color: var(--text-primary);
             font-weight: 600;
+            text-decoration: none;
             transition: color 0.2s;
         }
 
-        .contact-info-list a:hover {
-            color: var(--primary);
+        .profile-meta a:hover {
+            color: var(--cyan);
         }
 
         /* Sections */
@@ -353,125 +404,108 @@
             padding: 5.5rem 7%;
         }
 
-        .section-header {
-            margin-bottom: 3.5rem;
+        .sec-head {
             max-width: 820px;
+            margin-bottom: 3.3rem;
         }
 
-        .section-tag {
+        .sec-kicker {
+            display: inline-block;
             font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            margin-bottom: 0.5rem;
-            display: block;
+            color: var(--cyan);
+            margin-bottom: 0.55rem;
         }
 
-        .section-header h2 {
-            font-size: 2.35rem;
+        .sec-head h2 {
+            font-size: 2.3rem;
             font-weight: 800;
             letter-spacing: -1.1px;
-            margin-bottom: 0.8rem;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.02rem;
-        }
-
-        /* Engineering & HVAC Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .service-box {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            padding: 2.1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .service-box:hover {
-            transform: translateY(-5px);
-            border-color: rgba(56, 189, 248, 0.38);
-            background: var(--card-bg-hover);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.55);
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 13px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.35rem;
-            margin-bottom: 1.3rem;
-            border: 1px solid rgba(56, 189, 248, 0.22);
-        }
-
-        .service-box h3 {
-            font-size: 1.22rem;
-            font-weight: 700;
             margin-bottom: 0.75rem;
         }
 
-        .service-box p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.62;
+        .sec-head p {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: all 0.28s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: var(--glass-hover);
+            border-color: var(--border-glow);
+            box-shadow: 0 22px 44px -18px rgba(0, 0, 0, 0.65);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 13px;
+            background: rgba(56, 189, 248, 0.11);
+            border: 1px solid rgba(56, 189, 248, 0.24);
+            color: var(--cyan);
+            display: grid;
+            place-items: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .glass-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+
+        .glass-card p {
+            font-size: 0.89rem;
+            color: var(--text-secondary);
         }
 
         /* D.M. 37/08 Letters Grid */
         .letters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 1.4rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.35rem;
         }
 
-        .letter-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            padding: 1.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .letter-card:hover {
-            border-color: rgba(56, 189, 248, 0.35);
-            transform: translateY(-3px);
-            background: var(--card-bg-hover);
-        }
-
-        .letter-badge-row {
+        .letter-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 1.1rem;
         }
 
-        .letter-tag {
+        .letter-code {
             width: 42px;
             height: 42px;
+            border-radius: 11px;
             background: rgba(56, 189, 248, 0.12);
-            color: var(--primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            color: var(--cyan);
             font-weight: 800;
             font-size: 1.15rem;
-            border: 1px solid rgba(56, 189, 248, 0.28);
+            display: grid;
+            place-items: center;
         }
 
-        .status-pill {
-            font-size: 0.72rem;
+        .badge-ok {
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             padding: 0.25rem 0.7rem;
@@ -481,208 +515,195 @@
             border: 1px solid rgba(16, 185, 129, 0.25);
         }
 
-        .letter-card h4 {
-            font-size: 1.12rem;
-            font-weight: 700;
-            margin-bottom: 0.55rem;
-        }
-
-        .letter-card p {
-            font-size: 0.87rem;
-            color: var(--text-muted);
-            line-height: 1.55;
-        }
-
-        /* Clean & Minimalist Industrial Inspections Portfolio (Company + Equipment + Inspection Type Only) */
-        .inspection-wrapper {
-            background: linear-gradient(150deg, rgba(14, 21, 38, 0.92) 0%, rgba(7, 11, 22, 0.96) 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
+        /* Inspections Portfolio (Company + Title + Inspection Type Only) */
+        .insp-panel {
+            background: linear-gradient(155deg, rgba(13, 21, 39, 0.92), rgba(6, 10, 20, 0.97));
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
             padding: 3rem;
         }
 
-        .inspection-grid {
+        .insp-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.1rem;
         }
 
-        .insp-item {
-            background: rgba(10, 16, 30, 0.85);
+        .insp-card {
+            background: rgba(9, 15, 29, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: var(--radius-md);
-            padding: 1.25rem 1.4rem;
+            padding: 1.25rem 1.35rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.25s ease;
+            transition: all 0.22s ease;
         }
 
-        .insp-item:hover {
-            border-color: rgba(245, 158, 11, 0.4);
+        .insp-card:hover {
+            border-color: rgba(245, 158, 11, 0.42);
             transform: translateY(-2px);
-            background: rgba(16, 25, 46, 0.95);
+            background: rgba(15, 24, 45, 0.95);
         }
 
-        .insp-company {
-            font-size: 0.95rem;
+        .insp-co {
+            font-size: 0.94rem;
             font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.35rem;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .insp-company i {
-            color: var(--accent);
-            font-size: 0.8rem;
+        .insp-co i {
+            color: var(--amber);
+            font-size: 0.82rem;
         }
 
-        .insp-title {
-            font-size: 0.84rem;
-            color: var(--text-muted);
+        .insp-eq {
+            font-size: 0.83rem;
+            color: var(--text-secondary);
             margin-bottom: 0.75rem;
-            font-weight: 500;
         }
 
-        .insp-type {
-            display: inline-block;
+        .insp-badge {
             align-self: flex-start;
             font-size: 0.7rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 0.25rem 0.65rem;
+            letter-spacing: 0.4px;
+            padding: 0.24rem 0.65rem;
             border-radius: 6px;
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--accent);
-            border: 1px solid rgba(245, 158, 11, 0.22);
+            background: rgba(245, 158, 11, 0.11);
+            color: var(--amber);
+            border: 1px solid rgba(245, 158, 11, 0.24);
         }
 
-        /* Renovations Section */
-        .promo-container {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.06) 0%, rgba(12, 19, 36, 0.9) 100%);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 24px;
-            padding: 3.2rem;
+        /* Renovations */
+        .reno-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(11, 18, 34, 0.92));
+            border: 1px solid rgba(245, 158, 11, 0.32);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
         }
 
-        .promo-badge {
-            background: var(--accent);
-            color: #04070f;
-            padding: 0.35rem 1.1rem;
-            font-weight: 800;
-            font-size: 0.75rem;
-            border-radius: 999px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 1.2rem;
-        }
-
-        .promo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .promo-box {
-            background: rgba(8, 13, 25, 0.78);
-            border: 1px solid var(--card-border);
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-        }
-
-        .promo-box h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            display: flex;
+        .reno-pill {
+            display: inline-flex;
             align-items: center;
-            gap: 0.65rem;
-        }
-
-        .promo-box ul {
-            list-style: none;
-            margin-top: 1.2rem;
-        }
-
-        .promo-box ul li {
-            font-size: 0.89rem;
-            color: var(--text-muted);
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.65rem;
-        }
-
-        .promo-box ul li i {
-            color: var(--accent);
-            margin-top: 4px;
-        }
-
-        /* Guarantees Grid */
-        .guarantees-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .guarantee-card {
-            text-align: center;
-            padding: 2.2rem 1.6rem;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            background: var(--card-bg);
-        }
-
-        .guarantee-card i {
-            font-size: 2.3rem;
-            color: var(--primary);
+            gap: 0.45rem;
+            background: var(--amber);
+            color: #03060d;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
             margin-bottom: 1.1rem;
         }
 
-        .guarantee-card h4 {
-            font-size: 1.08rem;
-            margin-bottom: 0.6rem;
+        .reno-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-top: 2rem;
         }
 
-        .guarantee-card p {
-            font-size: 0.86rem;
-            color: var(--text-muted);
+        .reno-card {
+            background: rgba(7, 12, 23, 0.78);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+        }
+
+        .reno-card h3 {
+            font-size: 1.28rem;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .reno-card ul {
+            list-style: none;
+            margin-top: 1.1rem;
+        }
+
+        .reno-card li {
+            font-size: 0.89rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .reno-card li i {
+            color: var(--amber);
+            margin-top: 4px;
+        }
+
+        /* Guarantees */
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .g-card {
+            text-align: center;
+            padding: 2.1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            background: var(--glass);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .g-card i {
+            font-size: 2.2rem;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+        }
+
+        .g-card h4 {
+            font-size: 1.06rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .g-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
 
         /* Footer */
         footer {
+            background: #020409;
+            border-top: 1px solid var(--border-subtle);
             padding: 4.5rem 7% 2.5rem;
-            background: #02040a;
-            border-top: 1px solid var(--card-border);
             text-align: center;
         }
 
-        .footer-cta {
-            max-width: 700px;
+        .footer-inner {
+            max-width: 720px;
             margin: 0 auto 3rem;
         }
 
-        .footer-cta h2 {
-            font-size: 2.2rem;
+        .footer-inner h2 {
+            font-size: 2.15rem;
             font-weight: 800;
-            margin-bottom: 1rem;
             letter-spacing: -0.8px;
+            margin-bottom: 0.9rem;
         }
 
-        .footer-address {
-            margin-top: 1.8rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .location-line {
+            margin-top: 1.75rem;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
         }
 
-        .copyright {
-            color: var(--text-muted);
-            font-size: 0.84rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        .footer-copy {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 2rem;
+            font-size: 0.84rem;
+            color: var(--text-secondary);
         }
 
         @media (max-width: 980px) {
@@ -690,33 +711,33 @@
                 grid-template-columns: 1fr;
                 padding-top: 3rem;
             }
-            .hero-stats {
+            .hero-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .promo-grid {
+            .reno-grid {
                 grid-template-columns: 1fr;
             }
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.45rem;
             }
             .nav-links {
                 display: none;
             }
-            .inspection-wrapper, .promo-container {
-                padding: 1.8rem;
+            .insp-panel, .reno-box, .signature-profile {
+                padding: 1.75rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="ambient-bg"></div>
+    <div class="mesh-backdrop"></div>
 
     <!-- Navigation -->
     <nav>
         <a href="#" class="brand">
-            <span class="brand-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
-            <span>ING. MEHDI A.</span>
+            <span class="brand-mark"><i class="fa-solid fa-bolt-lightning"></i></span>
+            <span>Mehdi A.</span>
         </a>
         <div class="nav-links">
             <a href="#profilo">Profilo</a>
@@ -724,389 +745,392 @@
             <a href="#abilitazioni">D.M. 37/08 (A-G)</a>
             <a href="#ispezioni">Collaudi & QA/QC</a>
             <a href="#ristrutturazioni">Ristrutturazioni</a>
-            <a href="mailto:info@mehd.me?subject=Richiesta%20Consulenza%20Tecnica%20-%20Ing.%20Mehdi%20A." class="nav-cta">
-                <i class="fa-solid fa-envelope mr-1"></i> info@mehd.me
+            <a href="mailto:studio@mehd.me?subject=Contatto%20Studio%20-%20Ing.%20Mehdi%20A." class="nav-mail-pill">
+                <i class="fa-solid fa-envelope mr-1"></i> studio@mehd.me
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero & Profile -->
     <header id="profilo">
-        <div class="hero-content">
-            <div class="badge-academic">
+        <div>
+            <div class="role-chip">
                 <i class="fa-solid fa-graduation-cap"></i> M.Sc. Energy Engineering — Università degli Studi di Padova
             </div>
-            <h1>Ingegneria Energetica, Impianti & <span class="gradient-text">Collaudi Industriali</span></h1>
-            <p class="hero-lead">
-                <strong>Ing. Mehdi A.</strong> — Ingegnere Energetico con esperienza consolidata tra Italia ed estero nella progettazione e realizzazione di impianti termotecnici avanzati (<strong>Pompe di Calore, centrali termiche, sistemi radianti, UTA/HVAC</strong>), quadri elettrici trifase e sistemi antincendio. 
-                Abilitato come <strong>Responsabile Tecnico D.M. 37/08 per tutte le lettere (A - G)</strong>, certificato <strong>F-Gas Categoria I</strong> ed ispettore tecnico di terza parte per collaudi industriali internazionali.
+            <h1>Ingegneria Energetica, Impianti & <span class="grad-text">Collaudi Industriali</span></h1>
+            <p class="hero-summary">
+                Profilo tecnico di <strong>Ing. Mehdi A.</strong> — Ingegnere Energetico specializzato in progettazione, installazione e collaudo di sistemi termotecnici avanzati (<strong>Pompe di Calore, centrali termiche, impianti radianti, UTA/HVAC</strong>), quadri elettrici trifase e impianti antincendio. 
+                Abilitato come <strong>Responsabile Tecnico D.M. 37/08 (Lettere A - G)</strong>, certificato <strong>F-Gas Categoria I</strong> ed ispettore tecnico per collaudi industriali.
             </p>
-            <div class="hero-stats">
-                <div class="stat-item">
+
+            <div class="hero-metrics">
+                <div class="metric-box">
                     <h3>7/7</h3>
-                    <p>Lettere D.M. 37/08</p>
+                    <span>Lettere D.M. 37/08</span>
                 </div>
-                <div class="stat-item">
+                <div class="metric-box">
                     <h3>F-Gas</h3>
-                    <p>Cat. I Certificato</p>
+                    <span>Cat. I Certificato</span>
                 </div>
-                <div class="stat-item">
+                <div class="metric-box">
                     <h3>UniPD</h3>
-                    <p>Laurea Magistrale</p>
+                    <span>Laurea Magistrale</span>
                 </div>
-                <div class="stat-item">
+                <div class="metric-box">
                     <h3>18+</h3>
-                    <p>Collaudi FAT / PSI</p>
+                    <span>Collaudi FAT / PSI</span>
                 </div>
             </div>
-            <div class="cta-group">
-                <a href="mailto:info@mehd.me?subject=Richiesta%20Sopralluogo%20o%20Preventivo%20-%20mehd.me&body=Gentile%20Ing.%20Mehdi%20A.,%0A%0AVorrei%20richiedere%20una%20consulenza%20/%20sopralluogo%20per:%0A-%20Tipologia%20intervento:%20%0A-%20Localit%C3%A0:%20%0A-%20Dettagli:%20" class="btn btn-primary">
+
+            <div class="cta-row">
+                <a href="mailto:info@mehd.me?subject=Richiesta%20Sopralluogo%20/%20Consulenza%20-%20Mehdi%20A.&body=Gentile%20Ing.%20Mehdi%20A.,%0A%0AVorrei%20richiedere%20informazioni%20per:%0A-%20Servizio:%20%0A-%20Localit%C3%A0:%20%0A-%20Dettagli:%20" class="btn btn-glow">
                     <i class="fa-solid fa-calendar-check"></i> Richiedi Sopralluogo Gratuito
                 </a>
-                <a href="#ispezioni" class="btn btn-outline">
-                    <i class="fa-solid fa-clipboard-check"></i> Portfolio Collaudi Industriali
+                <a href="mailto:studio@mehd.me?subject=Incarico%20Tecnico%20/%20Collaudo%20-%20Mehdi%20A." class="btn btn-ghost">
+                    <i class="fa-solid fa-paper-plane"></i> Scrivi a studio@mehd.me
                 </a>
             </div>
         </div>
 
-        <!-- Executive Card -->
-        <div class="profile-card">
-            <div class="profile-header">
-                <img class="profile-avatar" src="https://avatars.githubusercontent.com/u/108500206?v=4" alt="Ing. Mehdi A.">
-                <div>
-                    <div class="profile-name">Ing. Mehdi A.</div>
-                    <div class="profile-title">Ingegnere Energetico & Resp. Tecnico</div>
+        <!-- Special Profile Card -->
+        <div class="signature-profile">
+            <div class="profile-top">
+                <div class="avatar-ring">
+                    <img src="https://avatars.githubusercontent.com/u/108500206?v=4" alt="Mehdi A.">
+                    <span class="profile-status-dot" title="Attivo"></span>
+                </div>
+                <div class="profile-identity">
+                    <h2>Mehdi A.</h2>
+                    <p>Ing. Energetico & Resp. Tecnico</p>
                 </div>
             </div>
 
-            <div class="cert-pills">
-                <span class="cert-pill">D.M. 37/08 (A-G)</span>
-                <span class="cert-pill">F-Gas Cat. I (UE 2015/2067)</span>
-                <span class="cert-pill">QA/QC Inspector</span>
+            <div class="profile-bio-quote">
+                "Approccio ingegneristico rigoroso tra efficienza energetica, conformità normativa D.M. 37/08 e controllo qualità industriale."
             </div>
-            
-            <ul class="contact-info-list">
+
+            <div class="profile-tags">
+                <span class="p-tag">D.M. 37/08 (A–G)</span>
+                <span class="p-tag">F-Gas Cat. I</span>
+                <span class="p-tag amber">QA/QC & FAT Inspector</span>
+            </div>
+
+            <ul class="profile-meta">
                 <li>
                     <i class="fa-solid fa-location-dot"></i>
-                    <span>Via Giambattista Belzoni 118, 35121 Padova (PD), Italia</span>
+                    <span><strong>Padova, Italia</strong></span>
                 </li>
                 <li>
                     <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <span style="display:block; font-size:0.75rem; color:#64748b;">Contatto Diretto Studio & Preventivi:</span>
-                        <a href="mailto:info@mehd.me?subject=Contatto%20Studio%20Tecnico%20-%20Ing.%20Mehdi%20A.">info@mehd.me</a>
-                    </div>
+                    <span>Info & Preventivi: <a href="mailto:info@mehd.me?subject=Richiesta%20Info%20-%20Mehdi%20A.">info@mehd.me</a></span>
                 </li>
                 <li>
-                    <i class="fa-solid fa-industry"></i>
-                    <div>
-                        <span style="display:block; font-size:0.75rem; color:#64748b;">Incarichi Collaudi & Ispezioni QA/QC:</span>
-                        <a href="mailto:collaudi@mehd.me?subject=Incarico%20Ispezione%20/%20FAT%20-%20Ing.%20Mehdi%20A.">collaudi@mehd.me</a>
-                    </div>
+                    <i class="fa-solid fa-compass-drafting"></i>
+                    <span>Studio & Collaudi: <a href="mailto:studio@mehd.me?subject=Incarico%20Studio%20-%20Mehdi%20A.">studio@mehd.me</a></span>
                 </li>
                 <li>
                     <i class="fa-solid fa-map"></i>
-                    <span><strong>Operatività:</strong> Veneto & Tutto il Territorio Nazionale</span>
+                    <span>Veneto & Territorio Nazionale</span>
                 </li>
             </ul>
         </div>
     </header>
 
-    <!-- Engineering, HVAC & Energy Certification -->
-    <section id="ingegneria" style="background: rgba(10, 16, 29, 0.55);">
-        <div class="section-header">
-            <span class="section-tag">Ingegneria Applicata & Termotecnica</span>
-            <h2>Consulenza Energetica, Impianti HVAC & Certificazioni</h2>
-            <p>Soluzioni ingegneristiche complete per l'efficienza energetica, la climatizzazione industriale/residenziale e la conformità normativa degli impianti:</p>
+    <!-- Engineering & HVAC -->
+    <section id="ingegneria" style="background: rgba(9, 16, 31, 0.5);">
+        <div class="sec-head">
+            <span class="sec-kicker">Competenze & Progettazione</span>
+            <h2>Ingegneria Energetica, HVAC & Certificazioni</h2>
+            <p>Progettazione, installazione, diagnostica e certificazione impiantistica per edifici residenziali, commerciali ed impianti industriali:</p>
         </div>
 
         <div class="services-grid">
-            <div class="service-box">
-                <div class="service-icon"><i class="fa-solid fa-temperature-arrow-up"></i></div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fa-solid fa-temperature-arrow-up"></i></div>
                 <h3>Pompe di Calore, HVAC & Centrali Termiche</h3>
-                <p>Dimensionamento, installazione e messa in servizio di <strong>pompe di calore ad alta efficienza</strong>, centrali termiche complesse, impianti radianti a pavimento, Unità di Trattamento Aria (UTA) e canalizzazioni aerauliche per edifici residenziali, commerciali ed industriali.</p>
+                <p>Calcolo, posa e avviamento di <strong>pompe di calore ad alta efficienza</strong>, centrali termiche, impianti radianti a pavimento, Unità di Trattamento Aria (UTA) e reti aerauliche.</p>
             </div>
 
-            <div class="service-box">
-                <div class="service-icon"><i class="fa-solid fa-snowflake"></i></div>
-                <h3>Impianti Frigoriferi & Certificazione F-Gas</h3>
-                <p>Operatività certificata <strong>F-Gas Categoria I (Reg. UE 2015/2067)</strong> per installazione, controllo perdite, manutenzione, riparazione e recupero gas refrigeranti su sistemi di condizionamento, chiller e pompe di calore di qualsiasi potenza.</p>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fa-solid fa-snowflake"></i></div>
+                <h3>Sistemi Frigoriferi & F-Gas Cat. I</h3>
+                <p>Attività certificata <strong>F-Gas Categoria I (Reg. UE 2015/2067)</strong> su climatizzatori, chiller e pompe di calore: installazione, manutenzione, controllo tenuta e gestione refrigeranti.</p>
             </div>
 
-            <div class="service-box">
-                <div class="service-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fa-solid fa-certificate"></i></div>
                 <h3>Certificazione Energetica (APE) & Audit</h3>
-                <p>Redazione dell'<strong>Attestato di Prestazione Energetica (APE)</strong> con deposito al Catasto Energetico Regionale, diagnosi energetiche secondo norme <strong>UNI/TS 11300</strong>, calcolo dispersioni termiche e piani di riqualificazione energetica.</p>
+                <p>Redazione dell'<strong>Attestato di Prestazione Energetica (APE)</strong>, analisi energetica secondo <strong>UNI/TS 11300</strong> e valutazione interventi per il miglioramento della classe energetica.</p>
             </div>
 
-            <div class="service-box">
-                <div class="service-icon"><i class="fa-solid fa-file-shield"></i></div>
-                <h3>Dichiarazioni Di.Co. & Di.Ri. (D.M. 37/08)</h3>
-                <p>Rilascio di <strong>Dichiarazione di Conformità (Di.Co.)</strong> e <strong>Dichiarazione di Rispondenza (Di.Ri. Art. 7)</strong> completa di schemi funzionali, relazioni tecniche sui materiali e collaudo strumentale a norma di legge.</p>
+            <div class="glass-card">
+                <div class="icon-box"><i class="fa-solid fa-file-shield"></i></div>
+                <h3>Dichiarazioni Di.Co. & Di.Ri.</h3>
+                <p>Rilascio di <strong>Dichiarazione di Conformità (Di.Co.)</strong> e <strong>Dichiarazione di Rispondenza (Di.Ri. Art. 7 D.M. 37/08)</strong> con documentazione tecnica e prove funzionali.</p>
             </div>
         </div>
     </section>
 
     <!-- D.M. 37/08 Letters A - G -->
     <section id="abilitazioni">
-        <div class="section-header">
-            <span class="section-tag">Abilitazione Tecnica Integrale</span>
+        <div class="sec-head">
+            <span class="sec-kicker">Abilitazione Normativa Completa</span>
             <h2>Responsabile Tecnico D.M. 37/08 — Lettere A - G</h2>
-            <p>Abilitazione completa alla progettazione, esecuzione, manutenzione e certificazione per tutte le sette categorie impiantistiche previste dal <strong>Decreto Ministeriale 37/08</strong>:</p>
+            <p>Abilitazione su tutte le categorie previste dal <strong>Decreto Ministeriale 37/08</strong> per esecuzione, direzione tecnica e certificazione:</p>
         </div>
 
         <div class="letters-grid">
-            <div class="letter-card">
-                <div class="letter-badge-row">
-                    <div class="letter-tag">A</div>
-                    <span class="status-pill"><i class="fa-solid fa-check"></i> Abilitato</span>
+            <div class="glass-card">
+                <div class="letter-top">
+                    <div class="letter-code">A</div>
+                    <span class="badge-ok">Abilitato</span>
                 </div>
-                <h4>Impianti Elettrici & Potenza Trifase</h4>
-                <p>Quadri elettrici di potenza e controllo (3-Phase) per impianti HVAC ed industriali, distribuzione elettrica, protezione scariche atmosferiche e automazione.</p>
+                <h3>Impianti Elettrici & Trifase</h3>
+                <p>Quadri elettrici di potenza e controllo (3-Phase) per impianti HVAC ed industriali, distribuzione elettrica e automazione.</p>
             </div>
 
-            <div class="letter-card">
-                <div class="letter-badge-row">
-                    <div class="letter-tag">B</div>
-                    <span class="status-pill"><i class="fa-solid fa-check"></i> Abilitato</span>
+            <div class="glass-card">
+                <div class="letter-top">
+                    <div class="letter-code">B</div>
+                    <span class="badge-ok">Abilitato</span>
                 </div>
-                <h4>Elettronici, Dati & TVCC</h4>
-                <p>Impianti radiotelevisivi, antenne, cablaggio strutturato e reti dati, sistemi antintrusione, teleallarme e videosorveglianza.</p>
+                <h3>Elettronici, Dati & TVCC</h3>
+                <p>Impianti radiotelevisivi, antenne, cablaggio strutturato, antintrusione, teleallarme e videosorveglianza.</p>
             </div>
 
-            <div class="letter-card">
-                <div class="letter-badge-row">
-                    <div class="letter-tag">C</div>
-                    <span class="status-pill"><i class="fa-solid fa-check"></i> Abilitato</span>
+            <div class="glass-card">
+                <div class="letter-top">
+                    <div class="letter-code">C</div>
+                    <span class="badge-ok">Abilitato</span>
                 </div>
-                <h4>Riscaldamento & Climatizzazione</h4>
-                <p>Centrali termiche, pompe di calore, caldaie a condensazione, impianti radianti a pavimento, sistemi idronici ed aeraulici UTA.</p>
+                <h3>Riscaldamento & Climatizzazione</h3>
+                <p>Centrali termiche, pompe di calore, caldaie, impianti radianti a pavimento, sistemi idronici e canali UTA.</p>
             </div>
 
-            <div class="letter-card">
-                <div class="letter-badge-row">
-                    <div class="letter-tag">D</div>
-                    <span class="status-pill"><i class="fa-solid fa-check"></i> Abilitato</span>
+            <div class="glass-card">
+                <div class="letter-top">
+                    <div class="letter-code">D</div>
+                    <span class="badge-ok">Abilitato</span>
                 </div>
-                <h4>Idrico-Sanitari & Trattamento Acque</h4>
-                <p>Reti di adduzione idrica e sanitaria, colonne di scarico insonorizzate, sistemi di pressurizzazione autoclave e trattamento acque.</p>
+                <h3>Idrico-Sanitari & Acque</h3>
+                <p>Reti idriche e sanitarie, scarichi, gruppi di pressurizzazione autoclave e trattamento acque.</p>
             </div>
 
-            <div class="letter-card">
-                <div class="letter-badge-row">
-                    <div class="letter-tag">E</div>
-                    <span class="status-pill"><i class="fa-solid fa-check"></i> Abilitato</span>
+            <div class="glass-card">
+                <div class="letter-top">
+                    <div class="letter-code">E</div>
+                    <span class="badge-ok">Abilitato</span>
                 </div>
-                <h4>Distribuzione & Adduzione Gas</h4>
-                <p>Impianti gas metano e GPL, bruciatori industriali/civili, prove di tenuta (UNI 7129 / UNI 11528) ed evacuazione prodotti della combustione.</p>
+                <h3>Distribuzione & Adduzione Gas</h3>
+                <p>Impianti gas metano e GPL, bruciatori, prove di tenuta (UNI 7129 / UNI 11528) ed evacuazione fumi.</p>
             </div>
 
-            <div class="letter-card">
-                <div class="letter-badge-row">
-                    <div class="letter-tag">F</div>
-                    <span class="status-pill"><i class="fa-solid fa-check"></i> Abilitato</span>
+            <div class="glass-card">
+                <div class="letter-top">
+                    <div class="letter-code">F</div>
+                    <span class="badge-ok">Abilitato</span>
                 </div>
-                <h4>Impianti di Sollevamento</h4>
-                <p>Ascensori, montacarichi, montascala e piattaforme elevatrici ad azionamento idraulico o elettromeccanico.</p>
+                <h3>Impianti di Sollevamento</h3>
+                <p>Ascensori, montacarichi, montascala e piattaforme elevatrici idrauliche o elettromeccaniche.</p>
             </div>
 
-            <div class="letter-card">
-                <div class="letter-badge-row">
-                    <div class="letter-tag">G</div>
-                    <span class="status-pill"><i class="fa-solid fa-check"></i> Abilitato</span>
+            <div class="glass-card">
+                <div class="letter-top">
+                    <div class="letter-code">G</div>
+                    <span class="badge-ok">Abilitato</span>
                 </div>
-                <h4>Protezione Attiva Antincendio</h4>
-                <p>Impianti di spegnimento automatico Sprinkler, reti idranti e naspi UNI 10779, gruppi di pompaggio antincendio e rivelazione fumi.</p>
+                <h3>Protezione Attiva Antincendio</h3>
+                <p>Impianti Sprinkler, reti idranti e naspi UNI 10779, gruppi di pompaggio antincendio e rilevazione fumi.</p>
             </div>
         </div>
     </section>
 
-    <!-- Clean & Concise Industrial Inspection Portfolio (Company + Equipment + Inspection Type Only) -->
+    <!-- Industrial Inspections (Company + Title + Inspection Type Only) -->
     <section id="ispezioni">
-        <div class="inspection-wrapper">
-            <div class="section-header" style="margin-bottom: 2.5rem;">
-                <span class="section-tag" style="color: var(--accent);">Portfolio Collaudi di Terza Parte & QA/QC</span>
-                <h2>Ispezioni Industriali, FAT & Marine Cargo Surveys</h2>
-                <p>Elenco delle principali commesse di collaudo e verifica ispettiva eseguite secondo standard internazionali (<strong>ISO 2859-1, EN 10204 3.1, IEC, CEI, UN FAO</strong>):</p>
+        <div class="insp-panel">
+            <div class="sec-head" style="margin-bottom: 2.4rem;">
+                <span class="sec-kicker" style="color: var(--amber);">Controllo Qualità & Terza Parte</span>
+                <h2>Collaudi & Ispezioni Industriali</h2>
+                <p>Elenco sintetico delle ispezioni e collaudi svolti (<strong>ISO 2859-1, EN 10204 3.1, IEC, CEI, UN FAO</strong>):</p>
             </div>
 
-            <div class="inspection-grid">
-                <div class="insp-item">
+            <div class="insp-grid">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Socomec S.p.A. (VI)</div>
-                        <div class="insp-title">Modular UPS 75+25 kVA & VRLA Battery Systems</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Socomec S.p.A. (VI)</div>
+                        <div class="insp-eq">Modular UPS 75+25 kVA & VRLA Battery Systems</div>
                     </div>
-                    <span class="insp-type">Third-Party FAT Witnessing</span>
+                    <span class="insp-badge">Third-Party FAT Witnessing</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> RMT / KG Equipments S.r.l. (PD)</div>
-                        <div class="insp-title">Class 600 Pneumatic Globe Control Valves</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> RMT / KG Equipments S.r.l. (PD)</div>
+                        <div class="insp-eq">Class 600 Pneumatic Globe Control Valves</div>
                     </div>
-                    <span class="insp-type">Vendor Inspection & Pressure Test</span>
+                    <span class="insp-badge">Vendor Inspection & Pressure Test</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> SMS group GmbH — Porto di Marghera (VE)</div>
-                        <div class="insp-title">Radial Axial Ring Rolling Machine (31T & 50T)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> SMS group GmbH — Porto di Marghera (VE)</div>
+                        <div class="insp-eq">Radial Axial Ring Rolling Machine (31T & 50T)</div>
                     </div>
-                    <span class="insp-type">Heavy Breakbulk Vessel Loading Survey</span>
+                    <span class="insp-badge">Heavy Breakbulk Vessel Loading Survey</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> G.D S.p.A. (Coesia) — Porto di Genova (GE)</div>
-                        <div class="insp-title">Battery Manufacturing Machinery (OOG Flat Rack)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> G.D S.p.A. (Coesia) — Porto di Genova (GE)</div>
+                        <div class="insp-eq">Battery Manufacturing Machinery (OOG Flat Rack)</div>
                     </div>
-                    <span class="insp-type">Marine PDI & Heavy Lift Supervision</span>
+                    <span class="insp-badge">Marine PDI & Heavy Lift Supervision</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Bernardinello Engineering S.p.A. (PD)</div>
-                        <div class="insp-title">Demineralized Process Water Plant (Thyssenkrupp)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Bernardinello Engineering S.p.A. (PD)</div>
+                        <div class="insp-eq">Demineralized Process Water Plant (Thyssenkrupp)</div>
                     </div>
-                    <span class="insp-type">Electromechanical FAT Witnessing</span>
+                    <span class="insp-badge">Electromechanical FAT Witnessing</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Finapp S.r.l. (PD)</div>
-                        <div class="insp-title">Cosmic Ray Neutron Sensors (UN FAO Order)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Finapp S.r.l. (PD)</div>
+                        <div class="insp-eq">Cosmic Ray Neutron Sensors (UN FAO Order)</div>
                     </div>
-                    <span class="insp-type">Electronic & Nuclear Instrumentation PSI</span>
+                    <span class="insp-badge">Electronic & Nuclear Instrumentation PSI</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Tamini Trasformatori S.r.l.</div>
-                        <div class="insp-title">20 MVA Three-Phase Power Oil Transformer</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Tamini Trasformatori S.r.l.</div>
+                        <div class="insp-eq">20 MVA Three-Phase Power Oil Transformer</div>
                     </div>
-                    <span class="insp-type">Final Packaging & Dispatch Inspection</span>
+                    <span class="insp-badge">Final Packaging & Dispatch Inspection</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Breton S.p.A. (TV)</div>
-                        <div class="insp-title">Engineered Stone Production Line Machinery</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Breton S.p.A. (TV)</div>
+                        <div class="insp-eq">Engineered Stone Production Line Machinery</div>
                     </div>
-                    <span class="insp-type">PSI & Heavy Marine Loading Supervision</span>
+                    <span class="insp-badge">PSI & Heavy Marine Loading Supervision</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> NESA S.r.l. (TV)</div>
-                        <div class="insp-title">Hydrometrical & Weather Stations (UN FAO)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> NESA S.r.l. (TV)</div>
+                        <div class="insp-eq">Hydrometrical & Weather Stations (UN FAO)</div>
                     </div>
-                    <span class="insp-type">Technical Audit & Loading Supervision</span>
+                    <span class="insp-badge">Technical Audit & Loading Supervision</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> COSME S.r.l. (VI)</div>
-                        <div class="insp-title">Industrial Wastewater Belt Press & Blowers</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> COSME S.r.l. (VI)</div>
+                        <div class="insp-eq">Industrial Wastewater Belt Press & Blowers</div>
                     </div>
-                    <span class="insp-type">Vendor Inspection & Dry Run Test</span>
+                    <span class="insp-badge">Vendor Inspection & Dry Run Test</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> M/S. LEVER S.r.l. (VR)</div>
-                        <div class="insp-title">Industrial Three-Phase Rectifiers & UPS Cabinets</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> M/S. LEVER S.r.l. (VR)</div>
+                        <div class="insp-eq">Industrial Three-Phase Rectifiers & UPS Cabinets</div>
                     </div>
-                    <span class="insp-type">Electromechanical Test & PSI</span>
+                    <span class="insp-badge">Electromechanical Test & PSI</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Gruppo Giovannini S.r.l. (PD)</div>
-                        <div class="insp-title">ABB Breakers & Siemens PROFINET Automation</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Gruppo Giovannini S.r.l. (PD)</div>
+                        <div class="insp-eq">ABB Breakers & Siemens PROFINET Automation</div>
                     </div>
-                    <span class="insp-type">Pre-Shipment Inspection (PSI)</span>
+                    <span class="insp-badge">Pre-Shipment Inspection (PSI)</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> ZENITH GROUP S.r.l. (VI)</div>
-                        <div class="insp-title">Medical PPE & FFP2/FFP3 Respirators (UN FAO)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> ZENITH GROUP S.r.l. (VI)</div>
+                        <div class="insp-eq">Medical PPE & FFP2/FFP3 Respirators (UN FAO)</div>
                     </div>
-                    <span class="insp-type">ISO 2859-1 Statistical PSI & Loading</span>
+                    <span class="insp-badge">ISO 2859-1 Statistical PSI & Loading</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> ISAGRO S.p.A. (MI / RO)</div>
-                        <div class="insp-title">Agricultural Chemical Products (DOMARK / AIR ONE)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> ISAGRO S.p.A. (MI / RO)</div>
+                        <div class="insp-eq">Agricultural Chemical Products (DOMARK / AIR ONE)</div>
                     </div>
-                    <span class="insp-type">Two-Phase PSI & Regulatory Audit</span>
+                    <span class="insp-badge">Two-Phase PSI & Regulatory Audit</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Barilla G. e R. Fratelli S.p.A.</div>
-                        <div class="insp-title">Packaged Food & Pasta Export Consignments</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Barilla G. e R. Fratelli S.p.A.</div>
+                        <div class="insp-eq">Packaged Food & Pasta Export Consignments</div>
                     </div>
-                    <span class="insp-type">Physical Verification & Container Stuffing</span>
+                    <span class="insp-badge">Physical Verification & Container Stuffing</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Mutti S.p.A.</div>
-                        <div class="insp-title">Tomato-Based Food Products & Sauces</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Mutti S.p.A.</div>
+                        <div class="insp-eq">Tomato-Based Food Products & Sauces</div>
                     </div>
-                    <span class="insp-type">Export Audit & Container Stuffing</span>
+                    <span class="insp-badge">Export Audit & Container Stuffing</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> Conserve Italia Soc. Coop. (FE)</div>
-                        <div class="insp-title">Preserved Food Products (1,440 Cartons)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> Conserve Italia Soc. Coop. (FE)</div>
+                        <div class="insp-eq">Preserved Food Products (1,440 Cartons)</div>
                     </div>
-                    <span class="insp-type">ISO 2859-1 PSI & FCL Stuffing</span>
+                    <span class="insp-badge">ISO 2859-1 PSI & FCL Stuffing</span>
                 </div>
 
-                <div class="insp-item">
+                <div class="insp-card">
                     <div>
-                        <div class="insp-company"><i class="fa-solid fa-building"></i> ALDINO S.r.l. (VR)</div>
-                        <div class="insp-title">Packaged Food Consignments (>20,000 Kg)</div>
+                        <div class="insp-co"><i class="fa-solid fa-building"></i> ALDINO S.r.l. (VR)</div>
+                        <div class="insp-eq">Packaged Food Consignments (&gt;20,000 Kg)</div>
                     </div>
-                    <span class="insp-type">Physical Verification & Seal Supervision</span>
+                    <span class="insp-badge">Physical Verification & Seal Supervision</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Renovations Section -->
+    <!-- Renovations -->
     <section id="ristrutturazioni">
-        <div class="promo-container">
-            <span class="promo-badge"><i class="fa-solid fa-tags"></i> Condizioni Dedicate 2026 & Detrazioni Fiscali</span>
-            <h2 style="font-size: 2.2rem; margin-bottom: 0.8rem;">Riqualificazione Edilizia & Ristrutturazioni Chiavi in Mano</h2>
-            <p style="color: var(--text-muted); max-width: 780px;">
-                Direzione tecnica ed esecuzione integrata tra opere edili ed impiantistica certificata D.M. 37/08, con <strong>sconti dedicati a capitolato</strong>:
+        <div class="reno-box">
+            <div class="reno-pill"><i class="fa-solid fa-tags"></i> Condizioni Dedicate & Detrazioni Fiscali</div>
+            <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.7rem;">Ristrutturazioni & Riqualificazione Chiavi in Mano</h2>
+            <p style="color: var(--text-secondary); max-width: 760px;">
+                Gestione integrata tra opere edili ed impiantistica certificata D.M. 37/08 con <strong>sconti dedicati a capitolato</strong>:
             </p>
 
-            <div class="promo-grid">
-                <div class="promo-box">
-                    <h3><i class="fa-solid fa-house-chimney" style="color: var(--accent);"></i> Ristrutturazione Completa Residenziale</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Rinnovamento integrale orientato al salto di classe energetica (APE):</p>
+            <div class="reno-grid">
+                <div class="reno-card">
+                    <h3><i class="fa-solid fa-house-chimney" style="color: var(--amber);"></i> Ristrutturazione Completa Residenziale</h3>
+                    <p style="font-size: 0.89rem; color: var(--text-secondary);">Intervento integrale per il miglioramento dell'efficienza energetica (APE):</p>
                     <ul>
                         <li><i class="fa-solid fa-check-circle"></i> Impianto radiante a pavimento e pompa di calore ad alta efficienza</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Rifacimento completo impianto elettrico, domotica e rete dati</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Rifacimento completo impianto elettrico e predisposizioni smart</li>
                         <li><i class="fa-solid fa-check-circle"></i> Opere murarie, massetti termoisolanti e finiture chiavi in mano</li>
-                        <li><i class="fa-solid fa-check-circle"></i> <strong>Sconto speciale applicato sul computo metrico complessivo</strong></li>
+                        <li><i class="fa-solid fa-check-circle"></i> <strong>Sconto speciale sul computo metrico complessivo</strong></li>
                     </ul>
                 </div>
 
-                <div class="promo-box">
-                    <h3><i class="fa-solid fa-shower" style="color: var(--accent);"></i> Ristrutturazione Bagno Premium</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Rifacimento completo con sostituzione integrale delle tubazioni sottotraccia:</p>
+                <div class="reno-card">
+                    <h3><i class="fa-solid fa-shower" style="color: var(--amber);"></i> Ristrutturazione Bagno Chiavi in Mano</h3>
+                    <p style="font-size: 0.89rem; color: var(--text-secondary);">Rifacimento completo con sostituzione degli impianti sottotraccia:</p>
                     <ul>
-                        <li><i class="fa-solid fa-check-circle"></i> Nuovi collettori sanitari multistrato e scarichi fonoassorbenti</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Nuovi collettori sanitari multistrato e reti di scarico</li>
                         <li><i class="fa-solid fa-check-circle"></i> Impermeabilizzazione certificata e posa rivestimenti</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Installazione sanitari sospesi, rubinetteria e box doccia</li>
-                        <li><i class="fa-solid fa-check-circle"></i> <strong>Pacchetto "Bagno Chiavi in Mano" a tariffa promozionale</strong></li>
+                        <li><i class="fa-solid fa-check-circle"></i> Installazione sanitari, rubinetteria e box doccia</li>
+                        <li><i class="fa-solid fa-check-circle"></i> <strong>Pacchetto bagno a tariffa promozionale dedicata</strong></li>
                     </ul>
                 </div>
             </div>
@@ -1114,60 +1138,60 @@
     </section>
 
     <!-- Guarantees -->
-    <section id="garanzie" style="background: rgba(10, 16, 29, 0.55);">
-        <div class="section-header">
-            <span class="section-tag">Affidabilità & Rigore Tecnico</span>
-            <h2>Garanzie Professionali</h2>
+    <section id="garanzie" style="background: rgba(9, 16, 31, 0.5);">
+        <div class="sec-head">
+            <span class="sec-kicker">Trasparenza & Affidabilità</span>
+            <h2>Garanzie del Servizio</h2>
         </div>
 
         <div class="guarantees-grid">
-            <div class="guarantee-card">
+            <div class="g-card">
                 <i class="fa-solid fa-file-invoice-dollar"></i>
                 <h4>Fatturazione Ufficiale</h4>
-                <p>Emissione di regolare fattura elettronica valida per tutte le detrazioni fiscali ed energetiche in Italia.</p>
+                <p>Emissione di regolare fattura elettronica valida per le agevolazioni fiscali ed energetiche.</p>
             </div>
 
-            <div class="guarantee-card">
+            <div class="g-card">
                 <i class="fa-solid fa-certificate"></i>
                 <h4>Di.Co. & Certificazioni</h4>
-                <p>Consegna completa di Dichiarazioni di Conformità D.M. 37/08, libretti impianto e rapporti F-Gas.</p>
+                <p>Consegna di Dichiarazioni di Conformità D.M. 37/08, libretti impianto e attestazioni F-Gas.</p>
             </div>
 
-            <div class="guarantee-card">
+            <div class="g-card">
                 <i class="fa-solid fa-folder-open"></i>
-                <h4>Sopralluogo Zero Spese</h4>
-                <p>Prima visita tecnica sul posto e valutazione preliminare svolte in forma <strong>totalmente gratuita</strong>.</p>
+                <h4>Sopralluogo Gratuito</h4>
+                <p>Prima visita tecnica e valutazione preliminare svolte <strong>senza alcun costo</strong>.</p>
             </div>
 
-            <div class="guarantee-card">
+            <div class="g-card">
                 <i class="fa-solid fa-map-location-dot"></i>
-                <h4>Veneto & Tutto il Territorio</h4>
-                <p>Operatività diretta a Padova, Venezia, Treviso, Vicenza, Verona e trasferte su tutto il territorio nazionale.</p>
+                <h4>Padova, Veneto & Italia</h4>
+                <p>Presenza diretta a Padova e in Veneto con disponibilità su tutto il territorio nazionale.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer & Official Site Emails -->
-    <footer id="contatti">
-        <div class="footer-cta">
-            <h2>Contatta lo Studio Tecnico</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2.2rem; font-size: 1.02rem;">
-                Scrivi direttamente all'indirizzo dedicato per richiedere un preventivo, un sopralluogo gratuito o per incarichi di collaudo industriale.
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <h2>Contatta Mehdi A.</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2.1rem; font-size: 1.02rem;">
+                Seleziona l'indirizzo dedicato per consulenze, sopralluoghi gratuiti o incarichi di collaudo e ispezione.
             </p>
-            <div class="cta-group" style="justify-content: center;">
-                <a href="mailto:info@mehd.me?subject=Richiesta%20Preventivo%20/%20Consulenza%20-%20Ing.%20Mehdi%20A.&body=Gentile%20Ing.%20Mehdi%20A.,%0A%0AVorrei%20richiedere%20informazioni%20per:%0A-%20Servizio:%20%0A-%20Localit%C3%A0:%20%0A-%20Messaggio:%20" class="btn btn-primary">
-                    <i class="fa-solid fa-envelope"></i> info@mehd.me (Clienti & Progetti)
+            <div class="cta-row" style="justify-content: center;">
+                <a href="mailto:info@mehd.me?subject=Richiesta%20Info%20/%20Sopralluogo%20-%20Mehdi%20A.&body=Gentile%20Ing.%20Mehdi%20A.,%0A%0AVorrei%20richiedere%20informazioni%20per:%0A-%20Servizio:%20%0A-%20Localit%C3%A0:%20%0A-%20Messaggio:%20" class="btn btn-glow">
+                    <i class="fa-solid fa-envelope"></i> info@mehd.me
                 </a>
-                <a href="mailto:collaudi@mehd.me?subject=Incarico%20Ispezione%20/%20FAT%20-%20Ing.%20Mehdi%20A.&body=Gentile%20Ing.%20Mehdi%20A.,%0A%0ADesideriamo%20richiedere%20la%20vostra%20disponibilit%C3%A0%20per%20un'ispezione%20/%20FAT:%0A-%20Azienda:%20%0A-%20Luogo%20ispezione:%20%0A-%20Data%20prevista:%20" class="btn btn-outline">
-                    <i class="fa-solid fa-clipboard-check"></i> collaudi@mehd.me (Ispezioni & QA/QC)
+                <a href="mailto:studio@mehd.me?subject=Incarico%20Studio%20/%20Collaudi%20-%20Mehdi%20A.&body=Gentile%20Ing.%20Mehdi%20A.,%0A%0ADesideriamo%20contattare%20lo%20studio%20per:%0A-%20Azienda%20/%20Cliente:%20%0A-%20Luogo:%20%0A-%20Dettagli:%20" class="btn btn-ghost">
+                    <i class="fa-solid fa-compass-drafting"></i> studio@mehd.me
                 </a>
             </div>
-            <div class="footer-address">
-                <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Studio: Via Giambattista Belzoni 118, 35121 Padova (PD), Italia
+            <div class="location-line">
+                <i class="fa-solid fa-location-dot" style="color: var(--cyan);"></i> Padova, Italia
             </div>
         </div>
-        <div class="copyright">
-            <p>© 2026 Ing. Mehdi A. — M.Sc. Energy Engineering (Università di Padova). Tutti i diritti riservati.</p>
+        <div class="footer-copy">
+            <p>© 2026 Mehdi A. — M.Sc. Energy Engineering (Università di Padova). Tutti i diritti riservati.</p>
         </div>
     </footer>
 
